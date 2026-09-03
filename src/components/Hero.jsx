@@ -1,19 +1,18 @@
 import { useEffect, useState } from "react";
 
-function Hero() {
-  const roles = [
-    "React Developer",
-    "Frontend Developer",
-    "JavaScript Developer",
-  ];
+const roles = [
+  "React Developer",
+  "Frontend Developer",
+  "JavaScript Developer",
+];
 
+function Hero() {
   const [roleIndex, setRoleIndex] = useState(0);
   const [text, setText] = useState("");
   const [deleting, setDeleting] = useState(false);
 
   useEffect(() => {
     const currentRole = roles[roleIndex];
-
     const speed = deleting ? 60 : 100;
 
     const timer = setTimeout(() => {
@@ -21,7 +20,7 @@ function Hero() {
         setText(currentRole.slice(0, text.length + 1));
 
         if (text.length + 1 === currentRole.length) {
-          setTimeout(() => setDeleting(true), 1000);
+          setDeleting(true);
         }
       } else {
         setText(currentRole.slice(0, text.length - 1));
@@ -56,11 +55,17 @@ function Hero() {
         </p>
 
         <div className="hero-buttons">
-          <a href="#projects" className="hero-btn primary">
+          <a
+            href="#projects"
+            className="hero-btn primary"
+          >
             View My Work
           </a>
 
-          <a href="#contact" className="hero-btn secondary">
+          <a
+            href="#contact"
+            className="hero-btn secondary"
+          >
             Contact Me
           </a>
         </div>
